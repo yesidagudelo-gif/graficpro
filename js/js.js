@@ -10,15 +10,43 @@ function init(){
   let multiplicacion = document.getElementById('multiplicacion');
   let division = document.getElementById('division');
   let igual = document.getElementById('igual');
-  let punto = document.getElementById('punto');
+  
+uno.onclick = function (e){
+  resultado.textContent = resultado.textContent + 1;
+}
 
-  let numero0 = document.getElementById('numero0');
-  let numero1 = document.getElementById('numero1');
-  let numero2 = document.getElementById('numero2');
-  let numero3 = document.getElementById('numero3');
-  let numero4 = document.getElementById('numero4');
-  let numero5 = document.getElementById('numero5');
-  let numero6 = document.getElementById('numero6');
-  let numero7 = document.getElementById('numero7');
-  let numero8 = document.getElementById('numero8');
-  let numero9 = document.getElementById('numero9');
+dos.onclick = function (e){
+  resultado.textContent = resultado.textContent + 2;
+}
+
+tres.onclick = function (e){
+  resultado.textContent = resultado.textContent + 3;
+}
+
+cuatro.onclick = function (e){
+  resultado.textContent = resultado.textContent + 4;
+}
+
+cinco.onclick = function (e){
+  resultado.textContent = resultado.textContent + 5;
+}
+
+seis.onclick = function (e){
+  resultado.textContent = resultado.textContent + 6;
+}
+
+siete.onclick = function (e){
+  resultado.textContent = resultado.textContent + 7;
+}
+
+ocho.onclick = function (e){
+  resultado.textContent = resultado.textContent + 8;
+}
+
+nueve.onclick = function (e){
+  resultado.textContent = resultado.textContent + 9;
+}
+
+cero.onclick = function (e){
+  resultado.textContent = resultado.textContent + 0;
+}

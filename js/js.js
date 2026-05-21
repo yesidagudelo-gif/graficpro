@@ -26,43 +26,43 @@ function init() {
   const reset = document.getElementById('reset');
 
   uno.onclick = function () {
-    resultado.textContent + "1";
+    resultado.textContent += "1";
   };
 
   dos.onclick = function () {
-    resultado.textContent + "2";
+    resultado.textContent += "2";
   };
 
   tres.onclick = function () {
-    resultado.textContent + "3";
+    resultado.textContent += "3";
   };
 
   cuatro.onclick = function () {
-    resultado.textContent + "4";
+    resultado.textContent += "4";
   };
 
   cinco.onclick = function () {
-    resultado.textContent + "5";
+    resultado.textContent += "5";
   };
 
   seis.onclick = function () {
-    resultado.textContent + "6";
+    resultado.textContent += "6";
   };
 
   siete.onclick = function () {
-    resultado.textContent + "7";
+    resultado.textContent += "7";
   };
 
   ocho.onclick = function () {
-    resultado.textContent + "8";
+    resultado.textContent += "8";
   };
 
   nueve.onclick = function () {
-    resultado.textContent + "9";
+    resultado.textContent += "9";
   };
 
   cero.onclick = function () {
-    resultado.textContent + "0";
+    resultado.textContent += "0";
   };
 
   suma.onclick = function () {

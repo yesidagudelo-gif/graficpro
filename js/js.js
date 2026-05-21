@@ -24,6 +24,10 @@ function init() {
   const igual = document.getElementById('igual');
   const reset = document.getElementById('reset');
 
+  const seno = document.getElementById('seno');
+  const coseno = document.getElementById('coseno');
+  const tangente = document.getElementById('tangente');
+
   // Números
   uno.onclick = () => agregarNumero("1");
   dos.onclick = () => agregarNumero("2");
@@ -41,6 +45,11 @@ function init() {
   resta.onclick = () => seleccionarOperador("-");
   multiplicacion.onclick = () => seleccionarOperador("*");
   division.onclick = () => seleccionarOperador("/");
+
+  // Funciones trigonométricas
+  seno.onclick = () => funcionTrigonometrica("sin");
+  coseno.onclick = () => funcionTrigonometrica("cos");
+  tangente.onclick = () => funcionTrigonometrica("tan");
 
   igual.onclick = () => calcular();
   reset.onclick = () => resetear();
@@ -65,6 +74,32 @@ function seleccionarOperador(op) {
   
   // Muestra el operador en pantalla (opcional pero recomendado)
   // document.getElementById('resultado').textContent = operandoa + " " + op;
+}
+
+function funcionTrigonometrica(func) {
+  if (pantalla === "") return; // Evita errores si no hay número
+
+  let numero = parseFloat(pantalla);
+  let radianes = numero * (Math.PI / 180); // Convierte grados a radianes
+  let resultado = 0;
+
+  switch (func) {
+    case "sin":
+      resultado = Math.sin(radianes);
+      break;
+    case "cos":
+      resultado = Math.cos(radianes);
+      break;
+    case "tan":
+      resultado = Math.tan(radianes);
+      break;
+  }
+
+  // Redondea a 6 decimales para evitar errores de precisión
+  resultado = Math.round(resultado * 1000000) / 1000000;
+
+  document.getElementById('resultado').textContent = resultado;
+  pantalla = resultado.toString();
 }
 
 function calcular() {

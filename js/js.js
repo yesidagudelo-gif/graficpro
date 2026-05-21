@@ -26,7 +26,7 @@ function init() {
   const reset = document.getElementById('reset');
 
   uno.onclick = function () {
-    resultado.textContent += "1";
+    resultado.textContent + "1";
   };
 
   dos.onclick = function () {

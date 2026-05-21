@@ -1,6 +1,7 @@
 let operandoa;
 let operandob;
 let operacion;
+let pantalla = "";
 
 function init() {
   const resultado = document.getElementById('resultado');
@@ -23,92 +24,53 @@ function init() {
   const igual = document.getElementById('igual');
   const reset = document.getElementById('reset');
 
-  uno.onclick = function () {
-    resultado.textContent += "1";
-  };
+  // Números
+  uno.onclick = () => agregarNumero("1");
+  dos.onclick = () => agregarNumero("2");
+  tres.onclick = () => agregarNumero("3");
+  cuatro.onclick = () => agregarNumero("4");
+  cinco.onclick = () => agregarNumero("5");
+  seis.onclick = () => agregarNumero("6");
+  siete.onclick = () => agregarNumero("7");
+  ocho.onclick = () => agregarNumero("8");
+  nueve.onclick = () => agregarNumero("9");
+  cero.onclick = () => agregarNumero("0");
 
-  dos.onclick = function () {
-    resultado.textContent += "2";
-  };
+  // Operadores
+  suma.onclick = () => seleccionarOperador("+");
+  resta.onclick = () => seleccionarOperador("-");
+  multiplicacion.onclick = () => seleccionarOperador("*");
+  division.onclick = () => seleccionarOperador("/");
 
-  tres.onclick = function () {
-    resultado.textContent += "3";
-  };
-
-  cuatro.onclick = function () {
-    resultado.textContent += "4";
-  };
-
-  cinco.onclick = function () {
-    resultado.textContent += "5";
-  };
-
-  seis.onclick = function () {
-    resultado.textContent += "6";
-  };
-
-  siete.onclick = function () {
-    resultado.textContent += "7";
-  };
-
-  ocho.onclick = function () {
-    resultado.textContent += "8";
-  };
-
-  nueve.onclick = function () {
-    resultado.textContent += "9";
-  };
-
-  cero.onclick = function () {
-    resultado.textContent += "0";
-  };
-
-  suma.onclick = function () {
-    operandoa = parseFloat(resultado.textContent);
-    operacion = "+";
-    limpiar();
-  };
-
-  resta.onclick = function () {
-    operandoa = parseFloat(resultado.textContent);
-    operacion = "-";
-    limpiar();
-  };
-
-  multiplicacion.onclick = function () {
-    operandoa = parseFloat(resultado.textContent);
-    operacion = "*";
-    limpiar();
-  };
-
-  division.onclick = function () {
-    operandoa = parseFloat(resultado.textContent);
-    operacion = "/";
-    limpiar();
-  };
-
-  igual.onclick = function () {
-    operandob = parseFloat(resultado.textContent);
-    resolver();
-  };
-
-  reset.onclick = function () {
-    resetear();
-  };
+  igual.onclick = () => calcular();
+  reset.onclick = () => resetear();
 }
 
-function limpiar() {
-  document.getElementById('resultado').textContent = "";
+function agregarNumero(num) {
+  pantalla += num;
+  document.getElementById('resultado').textContent = pantalla;
 }
 
-function resetear() {
-  document.getElementById('resultado').textContent = "";
-  operandoa = 0;
-  operandob = 0;
-  operacion = "";
+function seleccionarOperador(op) {
+  if (pantalla === "") return; // Evita errores si no hay número
+
+  if (operandoa !== undefined && operacion !== undefined) {
+    // Si ya hay una operación pendiente, calcula primero
+    calcular();
+  }
+
+  operandoa = parseFloat(pantalla);
+  operacion = op;
+  pantalla = "";
+  
+  // Muestra el operador en pantalla (opcional pero recomendado)
+  // document.getElementById('resultado').textContent = operandoa + " " + op;
 }
 
-function resolver() {
+function calcular() {
+  if (pantalla === "" || operandoa === undefined || operacion === undefined) return;
+
+  operandob = parseFloat(pantalla);
   let res = 0;
 
   switch (operacion) {
@@ -131,6 +93,17 @@ function resolver() {
   }
 
   document.getElementById('resultado').textContent = res;
+  pantalla = res.toString();
+  operandoa = undefined;
+  operacion = undefined;
+}
+
+function resetear() {
+  document.getElementById('resultado').textContent = "";
+  operandoa = undefined;
+  operandob = undefined;
+  operacion = undefined;
+  pantalla = "";
 }
 
 document.addEventListener('DOMContentLoaded', init);

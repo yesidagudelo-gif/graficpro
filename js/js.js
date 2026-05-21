@@ -1,10 +1,8 @@
-
 let operandoa;
 let operandob;
 let operacion;
 
 function init() {
-
   const resultado = document.getElementById('resultado');
 
   const uno = document.getElementById('uno');
@@ -26,7 +24,7 @@ function init() {
   const reset = document.getElementById('reset');
 
   uno.onclick = function () {
-    resultado.textContent + "1";
+    resultado.textContent += "1";
   };
 
   dos.onclick = function () {
@@ -111,23 +109,18 @@ function resetear() {
 }
 
 function resolver() {
-
   let res = 0;
 
   switch (operacion) {
-
     case "+":
       res = operandoa + operandob;
       break;
-
     case "-":
       res = operandoa - operandob;
       break;
-
     case "*":
       res = operandoa * operandob;
       break;
-
     case "/":
       if (operandob === 0) {
         res = "Error";
@@ -139,3 +132,5 @@ function resolver() {
 
   document.getElementById('resultado').textContent = res;
 }
+
+document.addEventListener('DOMContentLoaded', init);
